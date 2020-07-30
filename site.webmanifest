@@ -1,0 +1,12 @@
+{
+  "short_name": "Veronique's Bakery",
+  "name": "Veronique's Bakery | Authentic European Pastries",
+  "icons": [{
+    "src": "icon192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }],
+  "start_url": ".",
+  "background_color": "#fafafa",
+  "theme_color": "#fafafa"
+}
