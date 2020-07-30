@@ -294,9 +294,9 @@
 										<div id="order">
 											<legend class="mb-3">What would you like to order?</legend>
 											<p class="lead">Croissants</p>
-											<div class="row ml-3 w-100">
+											<div class="row m-0 w-100">
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="butter-croissants">Butter</label>
+													<label for="butter-croissants">Butter - $3.50</label>
 													<div class="input-group input-group-lg mb-3">
 														<input id="butter-croissants" name="butter-croissants" type="number" class="form-control" value="0" autocomplete="off" required />
 													  <div class="quantity-assist input-group-append">
@@ -306,7 +306,7 @@
 													</div>
 												</div>
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="almond-croissants">Almond</label>
+													<label for="almond-croissants">Almond - $3.75</label>
 													<div class="input-group input-group-lg mb-3">
 														<input id="almond-croissants" name="almond-croissants" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
@@ -318,18 +318,18 @@
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
 													<label for="chocolate-croissants">Chocolate</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="chocolate-croissants" name="chocolate-croissants" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+														<input id="chocolate-croissants" name="chocolate-croissants" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required disabled/>
 													  <div class="quantity-assist input-group-append">
-															<button name="remove" class="btn btn-secondary" type="button">-</button>
-															<button name="add" class="btn btn-secondary" type="button">+</button>
+															<button name="remove" class="btn btn-secondary" type="button" disabled>-</button>
+															<button name="add" class="btn btn-secondary" type="button" disabled>+</button>
 													  </div>
 													</div>
 												</div>
 											</div>
 											<p class="lead">Tarts</p>
-											<div class="row ml-3 w-100">
+											<div class="row m-0 w-100">
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="lemon-tarts">Lemon</label>
+													<label for="lemon-tarts">Lemon (small) - $4</label>
 													<div class="input-group input-group-lg mb-3">
 														<input id="lemon-tarts" name="lemon-tarts" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
@@ -339,7 +339,27 @@
 													</div>
 												</div>
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="almond-tarts">Almond</label>
+													<label for="lemon-tarts">Lemon (large) - $22</label>
+													<div class="input-group input-group-lg mb-3">
+														<input id="lemon-tarts" name="lemon-tarts" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+													  <div class="quantity-assist input-group-append">
+															<button name="remove" class="btn btn-secondary" type="button">-</button>
+															<button name="add" class="btn btn-secondary" type="button">+</button>
+													  </div>
+													</div>
+												</div>
+												<div class="col-12 col-sm-6 col-lg-4 form-group">
+													<label for="almond-tarts">Almond (small) - $4</label>
+													<div class="input-group input-group-lg mb-3">
+														<input id="almond-tarts" name="almond-tarts" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+													  <div class="quantity-assist input-group-append">
+															<button name="remove" class="btn btn-secondary" type="button">-</button>
+															<button name="add" class="btn btn-secondary" type="button">+</button>
+													  </div>
+													</div>
+												</div>
+												<div class="col-12 col-sm-6 col-lg-4 form-group">
+													<label for="almond-tarts">Almond (large) - $22</label>
 													<div class="input-group input-group-lg mb-3">
 														<input id="almond-tarts" name="almond-tarts" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
@@ -350,9 +370,19 @@
 												</div>
 											</div>
 											<p class="lead">Bread Pudding</p>
-											<div class="row ml-3 w-100">
+											<div class="row m-0 w-100">
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="bread-pudding">Regular</label>
+													<label for="bread-pudding">Regular (small) - $3.50</label>
+													<div class="input-group input-group-lg mb-3">
+														<input id="bread-pudding" name="bread-pudding" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+													  <div class="quantity-assist input-group-append">
+															<button name="remove" class="btn btn-secondary" type="button">-</button>
+															<button name="add" class="btn btn-secondary" type="button">+</button>
+													  </div>
+													</div>
+												</div>
+												<div class="col-12 col-sm-6 col-lg-4 form-group">
+													<label for="bread-pudding">Regular (large) - $22.50</label>
 													<div class="input-group input-group-lg mb-3">
 														<input id="bread-pudding" name="bread-pudding" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
