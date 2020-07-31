@@ -3,11 +3,18 @@ import { submitOrderRequest } from './submission.js'
 const formGroups = document.querySelectorAll('#orderForm div.form-group')
 const inputFields = document.querySelectorAll('#orderForm input')
 
-// handle form submit
-export function handleFormSubmit(e){
+/*
+ *
+ *  HANDLE FORM SUBMISSION
+ *
+ */
+
+export async function handleFormSubmit(e){
 
   // prevent submit
   e.preventDefault()
+
+  document.getElementById('submitButton').innerHTML = document.getElementById('submitButton').innerHTML + '<div class="spinner-border ml-3 align-self-center" role="status" aria-hidden="true"></div>'
 
   // define values for return
   let formValues = {}
@@ -31,13 +38,28 @@ export function handleFormSubmit(e){
     }
 
     // attach to formValues
-    formValues[`${key}${x}`] = value
+    formValues[key] = value
   }
 
-  submitOrderRequest(formValues)
+  const result = await submitOrderRequest(formValues)
+  if (result === "success") {
+    document.getElementById('submitButton').innerHTML = "Success!"
+    setTimeout(() => {
+      $('#orderFormModal').modal('hide')
+      document.getElementById('orderForm').reset()
+      document.getElementById('orderDetails').style.display = 'none'
+      document.getElementById('contactDetails').style.display = 'none'
+      document.getElementById('order').style.display = 'block'
+    }, 600)
+  }
 }
 
-// attach validation response to inputs
+/*
+ *
+ *  ATTACH VALIDATION RESPONSE TO INPUTS
+ *
+ */
+
 export function attachValidationToFormInputs() {
 
   // loop all form groups
@@ -81,7 +103,13 @@ export function attachValidationToFormInputs() {
   }
 }
 
-// toggle delivery zip code input
+
+/*
+ *
+ *  TOGGLE DELIVERY ZIP CODE INPUT
+ *
+ */
+
 export function toggleDeliveryInput(e) {
   const deliveryInput = document.getElementById('location')
   if (e.target.value === "pickup") {
@@ -95,7 +123,12 @@ export function toggleDeliveryInput(e) {
   }
 }
 
-// add min date to the fulfillment order
+/*
+ *
+ *  ADD MIN DATE TO THE FULFILLMENT ORDER
+ *
+ */
+
 export function setMinimumDateForFulfillment() {
   const today = new Date()
 
@@ -105,9 +138,15 @@ export function setMinimumDateForFulfillment() {
   const year = today.getFullYear()
 
   document.getElementById('date').min = `${year}-${month}-${day}`
+  document.getElementById('date').value = `${year}-${month}-${day}`
 }
 
-// add next feature to form
+/*
+ *
+ *  ADD NEXT FEATURE TO THE FORM
+ *
+ */
+
 export function attachNextButtonHandler(e) {
   if (e.target.id === 'next1') {
     document.getElementById('order').style.display = 'none'
@@ -119,13 +158,23 @@ export function attachNextButtonHandler(e) {
   }
 }
 
-// add back feature to form
+/*
+ *
+ *  ADD BACK FEATURE TO THE FORM
+ *
+ */
+
 export function attachBackButtonHandler() {
   document.getElementById('orderDetails').style.display = 'none'
   document.getElementById('order').style.display = 'block'
 }
 
-// reset form to original on close
+/*
+ *
+ *  SET FORM TO FIRST SCREEN ON CLOSE
+ *
+ */
+
 export function attachCloseButtonHandler() {
   setTimeout(() => {
     document.getElementById('orderDetails').style.display = 'none'

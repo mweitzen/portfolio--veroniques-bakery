@@ -16,5 +16,6 @@ export async function submitOrderRequest(data) {
   }
   catch (err) {
     alert('Sorry! Something went wrong. We were not able to submit your order.')
+    return "fail"
   }
 }
