@@ -10,7 +10,6 @@ export function attachQuantityAssistToNumberInputs() {
 
     removeButton.addEventListener('click', () => {
       if (!thisInput.value || thisInput.value == 0) return
-      // console.log(thisInput.value)
       thisInput.value--
     })
     addButton.addEventListener('click', () => {
