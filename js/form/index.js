@@ -47,9 +47,8 @@ export async function handleFormSubmit(e){
     setTimeout(() => {
       $('#orderFormModal').modal('hide')
       document.getElementById('orderForm').reset()
-      document.getElementById('orderDetails').style.display = 'none'
-      document.getElementById('contactDetails').style.display = 'none'
-      document.getElementById('order').style.display = 'block'
+      alert('You will receive an email shortly with a recap of your requested order!')
+      window.location.reload()
     }, 600)
   }
 }

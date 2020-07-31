@@ -1,4 +1,5 @@
 export async function submitOrderRequest(data) {
+  console.log(data)
   try {
     const response = await fetch('https://script.google.com/macros/s/AKfycbyS2FhF8fJmzVx99P3CQzFzGMZh9JOQv0MHljAnhKjC5N49yg8/exec', {
       method: 'POST',
