@@ -288,6 +288,14 @@ section:first-child {
  *  PRODUCTS & ORDER SECTION
  *
  */
+#orderDetails {
+  display: none;
+}
+
+#contactDetails {
+  display: none;
+}
+
 .orderButton {
   margin: 24px 0;
   width: 240px;

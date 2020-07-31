@@ -40,7 +40,6 @@
 
 	<!-- JAVASCRIPT LIBRARIES -->
 	<script src="https://kit.fontawesome.com/be41284bfc.js" crossorigin="anonymous"></script>
-	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 </head>
 
 <!-- BODY -->
@@ -281,7 +280,7 @@
 								<!-- ORDER HEADER -->
 					      <div class="modal-header">
 					        <h5 class="modal-title" id="orderFormModalLabel">Request an Order</h5>
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					        <button id="closeForm" type="button" class="close" data-dismiss="modal" aria-label="Close">
 					          <span aria-hidden="true">&times;</span>
 					        </button>
 					      </div>
@@ -293,12 +292,12 @@
 										<!-- ORDER SECTION -->
 										<div id="order">
 											<legend class="mb-3">What would you like to order?</legend>
-											<p class="lead">Croissants</p>
+											<p class="lead mt-4">Croissants</p>
 											<div class="row m-0 w-100">
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
 													<label for="butter-croissants">Butter - $3.50</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="butter-croissants" name="butter-croissants" type="number" class="form-control" value="0" autocomplete="off" required />
+														<input id="butter-croissants" name="butter-croissants" type="number" class="form-control" min="0" autocomplete="off" required />
 													  <div class="quantity-assist input-group-append">
 															<button name="remove" class="btn btn-secondary" type="button">-</button>
 															<button name="add" class="btn btn-secondary" type="button">+</button>
@@ -308,7 +307,7 @@
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
 													<label for="almond-croissants">Almond - $3.75</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="almond-croissants" name="almond-croissants" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+														<input id="almond-croissants" name="almond-croissants" type="number" class="form-control form-control-lg" min="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
 															<button name="remove" class="btn btn-secondary" type="button">-</button>
 															<button name="add" class="btn btn-secondary" type="button">+</button>
@@ -318,7 +317,7 @@
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
 													<label for="chocolate-croissants">Chocolate</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="chocolate-croissants" name="chocolate-croissants" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required disabled/>
+														<input id="chocolate-croissants" name="chocolate-croissants" type="number" class="form-control form-control-lg" min="0" autocomplete="off" required disabled/>
 													  <div class="quantity-assist input-group-append">
 															<button name="remove" class="btn btn-secondary" type="button" disabled>-</button>
 															<button name="add" class="btn btn-secondary" type="button" disabled>+</button>
@@ -326,12 +325,12 @@
 													</div>
 												</div>
 											</div>
-											<p class="lead">Tarts</p>
+											<p class="lead mt-4">Tarts</p>
 											<div class="row m-0 w-100">
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="lemon-tarts">Lemon (small) - $4</label>
+													<label for="lemon-tarts-small">Lemon (small) - $4</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="lemon-tarts" name="lemon-tarts" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+														<input id="lemon-tarts-small" name="lemon-tarts-small" type="number" class="form-control form-control-lg" min="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
 															<button name="remove" class="btn btn-secondary" type="button">-</button>
 															<button name="add" class="btn btn-secondary" type="button">+</button>
@@ -339,9 +338,9 @@
 													</div>
 												</div>
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="lemon-tarts">Lemon (large) - $22</label>
+													<label for="lemon-tarts-large">Lemon (large) - $22</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="lemon-tarts" name="lemon-tarts" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+														<input id="lemon-tarts-large" name="lemon-tarts-large" type="number" class="form-control form-control-lg" min="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
 															<button name="remove" class="btn btn-secondary" type="button">-</button>
 															<button name="add" class="btn btn-secondary" type="button">+</button>
@@ -349,9 +348,9 @@
 													</div>
 												</div>
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="almond-tarts">Almond (small) - $4</label>
+													<label for="almond-tarts-small">Almond (small) - $4</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="almond-tarts" name="almond-tarts" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+														<input id="almond-tarts-small" name="almond-tarts-small" type="number" class="form-control form-control-lg" min="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
 															<button name="remove" class="btn btn-secondary" type="button">-</button>
 															<button name="add" class="btn btn-secondary" type="button">+</button>
@@ -359,9 +358,9 @@
 													</div>
 												</div>
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="almond-tarts">Almond (large) - $22</label>
+													<label for="almond-tarts-large">Almond (large) - $22</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="almond-tarts" name="almond-tarts" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+														<input id="almond-tarts-large" name="almond-tarts-large" type="number" class="form-control form-control-lg" min="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
 															<button name="remove" class="btn btn-secondary" type="button">-</button>
 															<button name="add" class="btn btn-secondary" type="button">+</button>
@@ -369,12 +368,12 @@
 													</div>
 												</div>
 											</div>
-											<p class="lead">Bread Pudding</p>
+											<p class="lead mt-4">Bread Pudding</p>
 											<div class="row m-0 w-100">
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="bread-pudding">Regular (small) - $3.50</label>
+													<label for="bread-pudding-small">Regular (small) - $3.50</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="bread-pudding" name="bread-pudding" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+														<input id="bread-pudding-small" name="bread-pudding-small" type="number" class="form-control form-control-lg" min="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
 															<button name="remove" class="btn btn-secondary" type="button">-</button>
 															<button name="add" class="btn btn-secondary" type="button">+</button>
@@ -382,9 +381,9 @@
 													</div>
 												</div>
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="bread-pudding">Regular (large) - $22.50</label>
+													<label for="bread-pudding-large">Regular (large) - $22.50</label>
 													<div class="input-group input-group-lg mb-3">
-														<input id="bread-pudding" name="bread-pudding" type="number" class="form-control form-control-lg" value="0" autocomplete="off" required/>
+														<input id="bread-pudding-large" name="bread-pudding-large" type="number" class="form-control form-control-lg" min="0" autocomplete="off" required/>
 													  <div class="quantity-assist input-group-append">
 															<button name="remove" class="btn btn-secondary" type="button">-</button>
 															<button name="add" class="btn btn-secondary" type="button">+</button>
@@ -392,6 +391,7 @@
 													</div>
 												</div>
 											</div>
+											<button id="next1" type="button" class="btn btn-dark btn-lg btn-block mt-4 mb-4">Next&nbsp;<i class="fa fa-angle-right"></i></button>
 										</div>
 
 										<!-- ORDER DETAILS -->
@@ -402,8 +402,7 @@
 												<br />
 												<div class="ml-3">
 													<label for="pickup">Pickup</label>
-													<input id="pickup" name="fulfillment" type="radio" value="pickup" checked />
-													<br />
+													<input id="pickup" name="fulfillment" type="radio" value="pickup" class="mr-5" checked />
 													<label for="cater">Catering</label>
 													<input id="cater" name="fulfillment" type="radio" value="cater" />
 												</div>
@@ -414,11 +413,19 @@
 											</div>
 											<div class="form-group">
 												<label for="date">Date to Fulfill Order</label>
-												<input id="date" name="date" type="date" class="form-control" placeholder="mm/dd/yyyy" autocomplete="off" required/>
+												<input id="date" name="date" type="date" class="form-control" placeholder="mm/dd/yyyy" min="" autocomplete="off" required/>
 											</div>
 											<div class="form-group">
 												<label for="time">Time to Fulfill Order</label>
-												<input id="time" name="time" type="time" class="form-control" placeholder="hh:mm (am/pm)" autocomplete="off"/>
+												<input id="time" name="time" type="time" class="form-control" placeholder="hh:mm (am/pm)" min="09:00" max="20:00" autocomplete="off"/>
+											</div>
+											<div class="row">
+												<div class="col-6 mt-4 mb-4">
+													<button id="back1" type="button" class="btn btn-dark btn-lg btn-block"><i class="fa fa-angle-left"></i>&nbsp;Back</button>
+												</div>
+												<div class="col-6 mt-4 mb-4">
+													<button id="next2" type="button" class="btn btn-dark btn-lg btn-block">Next&nbsp;<i class="fa fa-angle-right"></i></button>
+												</div>
 											</div>
 										</div>
 
@@ -435,17 +442,11 @@
 											</div>
 											<div class="form-group">
 												<label for="phone">Best Phone to Contact</label>
-												<input id="phone" name="phone" type="tel" class="form-control" placeholder="xxx-xxx-xxxx" autocomplete="tel" required/>
+												<input id="phone" name="phone" type="tel" class="form-control" placeholder="xxx-xxx-xxxx" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" autocomplete="tel" required/>
 											</div>
+											<button type="submit" class="btn btn-dark btn-lg btn-block mt-4 mb-4">Submit Order!</button>
 										</div>
 									</form>
-					      </div>
-
-								<!-- BUTTONS  -->
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Close</button>
-									<button type="reset" class="order-form-button btn btn-outline-dark">Reset</button>
-									<button type="submit" class="order-form-button btn btn-outline-dark">Submit</button>
 					      </div>
 					    </div>
 					  </div>
@@ -522,7 +523,7 @@
 		<div class="container">
 			<span>
 					&copy;
-					<span id="copyright"></span> Veronique Bakery
+					<span id="copyright"></span> Veronique's Bakery
 					<span class="footer-desktop-util">- </span>
 					<br class="footer-mobile-util" />
 				All rights reserved

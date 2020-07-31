@@ -11,7 +11,7 @@ export async function submitOrderRequest(data) {
         payload: data
       })
     })
-    // console.log(response)
+
     return 'success'
   }
   catch (err) {
