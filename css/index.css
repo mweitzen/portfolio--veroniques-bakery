@@ -292,6 +292,10 @@ section:first-child {
   touch-action: manipulation;
 }
 
+.quantity-add, .quantity-remove {
+  touch-action: manipulation;
+}
+
 #orderDetails {
   display: none;
 }
