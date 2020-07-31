@@ -483,7 +483,7 @@ footer a:hover {
   	font-size: 4.6em;
   }
 
-  main {
+  section:not(#products) {
     padding-left: 24px;
     padding-right: 24px;
   }
