@@ -481,6 +481,11 @@ footer a:hover {
   	font-size: 4.6em;
   }
 
+  main {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   footer span {
     font-size: 12px;
   }
