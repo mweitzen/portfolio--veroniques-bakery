@@ -129,8 +129,6 @@ header {
  */
 
 .navbar {
-  padding-top: 0;
-  padding-bottom: 0;
   min-height: 80px;
   background: #111;
   font-family: 'Open Sans', sans-serif;
