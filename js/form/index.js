@@ -90,7 +90,46 @@ export function toggleDeliveryInput(e) {
       return deliveryInput.disabled = true
     }
   }
-  if (e.target.value === "cater") {
+  if (e.target.value === "delivery") {
     if (e.target.checked) return deliveryInput.disabled = false
   }
+}
+
+// add min date to the fulfillment order
+export function setMinimumDateForFulfillment() {
+  const today = new Date()
+
+  const day = today.getDate()
+  const monthX = today.getMonth() + 1
+  const month = monthX < 10 ? `0${monthX}` : monthX
+  const year = today.getFullYear()
+
+  document.getElementById('date').min = `${year}-${month}-${day}`
+}
+
+// add next feature to form
+export function attachNextButtonHandler(e) {
+  if (e.target.id === 'next1') {
+    document.getElementById('order').style.display = 'none'
+    document.getElementById('orderDetails').style.display = 'block'
+    return
+  } else if (e.target.id === 'next2') {
+    document.getElementById('orderDetails').style.display = 'none'
+    document.getElementById('contactDetails').style.display = 'block'
+  }
+}
+
+// add back feature to form
+export function attachBackButtonHandler() {
+  document.getElementById('orderDetails').style.display = 'none'
+  document.getElementById('order').style.display = 'block'
+}
+
+// reset form to original on close
+export function attachCloseButtonHandler() {
+  setTimeout(() => {
+    document.getElementById('orderDetails').style.display = 'none'
+    document.getElementById('contactDetails').style.display = 'none'
+    document.getElementById('order').style.display = 'block'
+  }, 600)
 }
