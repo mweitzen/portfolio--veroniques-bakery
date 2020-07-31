@@ -95,7 +95,6 @@ header {
 .background-parallax {
   flex-grow: 1;
   background: #D6C9B6;
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -476,10 +475,6 @@ footer a:hover {
 
 /* SMALL 576px */
 @media (max-width: 575px) {
-  .background-parallax {
-    background-attachment: scroll;  
-  }
-
   .header-title {
   	font-size: 6em;
   }
