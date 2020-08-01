@@ -5,6 +5,65 @@ const inputFields = document.querySelectorAll('#orderForm input')
 
 /*
  *
+ *  SANITIZE DATA
+ *
+ */
+
+function sanitizeData(data) {
+  const {
+    almond_croissants,
+    butter_croissants,
+    chocolate_croissants,
+    lemon_tarts_small,
+    lemon_tarts_large,
+    almond_tarts_small,
+    almond_tarts_large,
+    bread_pudding_small,
+    bread_pudding_large,
+    ...rest
+  } = data
+
+  const returnValue = {
+    ...rest,
+    quantities: {
+      almond_croissants,
+      butter_croissants,
+      chocolate_croissants,
+      lemon_tarts_small,
+      lemon_tarts_large,
+      almond_tarts_small,
+      almond_tarts_large,
+      bread_pudding_small,
+      bread_pudding_large,
+    },
+    costs: {
+      almond_croissants: almond_croissants * 3.50,
+      butter_croissants: butter_croissants * 3.50,
+      chocolate_croissants: chocolate_croissants * 0,
+      lemon_tarts_small: lemon_tarts_small * 4,
+      lemon_tarts_large: lemon_tarts_large * 22,
+      almond_tarts_small: almond_tarts_small * 4,
+      almond_tarts_large: almond_tarts_large * 22,
+      bread_pudding_small: bread_pudding_small * 3.50,
+      bread_pudding_large: bread_pudding_large * 20,
+    }
+  }
+
+  const croissantsSubtotal = returnValue.costs.almond_croissants + returnValue.costs.butter_croissants + returnValue.costs.chocolate_croissants
+  const tartsSubtotal = returnValue.costs.lemon_tarts_small + returnValue.costs.lemon_tarts_large + returnValue.costs.almond_tarts_small + returnValue.costs.almond_tarts_large
+  const breadPuddingSubtotal = returnValue.costs.bread_pudding_small + returnValue.costs.bread_pudding_large
+  const total = croissantsSubtotal + tartsSubtotal + breadPuddingSubtotal
+
+  returnValue.costs.croissantsSubtotal = croissantsSubtotal
+  returnValue.costs.tartsSubtotal = tartsSubtotal
+  returnValue.costs.breadPuddingSubtotal = breadPuddingSubtotal
+  returnValue.costs.total = total
+
+  return returnValue
+}
+
+/*
+ *
  *  HANDLE FORM SUBMISSION
  *
  */
@@ -41,7 +100,12 @@ export async function handleFormSubmit(e){
     formValues[key] = value
   }
 
-  const result = await submitOrderRequest(formValues)
+  // sanitize form data and structure properly
+  const sanitized = sanitizeData(formValues)
+
+  // submit order request to google apps script
+  const result = await submitOrderRequest(sanitized)
+
   if (result === "success") {
     document.getElementById('submitButton').innerHTML = "Success!"
     setTimeout(() => {

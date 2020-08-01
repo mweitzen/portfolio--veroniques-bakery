@@ -1,4 +1,4 @@
-export function attachHoverEffectToProductCards(){
+export function attachHoverEffectToProductCards() {
 
   // loop over all of the product cards
   let productCards = document.querySelectorAll('.product-card')
