@@ -36,3 +36,6 @@ document.getElementById('closeForm').addEventListener('click', attachCloseButton
 document.getElementById('orderForm').addEventListener('submit', handleFormSubmit)
 document.getElementById("delivery").addEventListener('change', toggleDeliveryInput)
 document.getElementById('pickup').addEventListener('change', toggleDeliveryInput)
+document.getElementById('navbar').addEventListener('click', () => {
+  $('.collapse').collapse('hide')
+})
