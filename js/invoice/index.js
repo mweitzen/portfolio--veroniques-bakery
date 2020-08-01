@@ -9,7 +9,7 @@ function formatDateAndTime(date, time) {
   const month = monthX < 10 ? `0${monthX}` : monthX
   const year = d.getFullYear()
 
-  return `${day}/${month}/${year} ${time}`
+  return `${month}/${day}/${year} ${new Date(time).toLocaleTimeString()}`
 }
 
 async function getInvoiceDetails() {
@@ -25,9 +25,9 @@ async function getInvoiceDetails() {
   document.getElementById('payment_order_name').append(data.name)
   document.getElementById('payment_order_location').append(data.fulfillment_type === "pickup" ? "Pickup" : data.fulfillment_location)
   document.getElementById('payment_order_date').append(formatDateAndTime(data.fulfillment_date, data.fulfillment_time))
-  document.getElementById('payment_order_total').append(`$${data.order_total}`)
+  document.getElementById('payment_order_total').append(`$${String(Number(data.order_total).toFixed(2))}`)
 
-  renderPaypalButtons(data.order_total)
+  renderPaypalButtons(String(Number(data.order_total).toFixed(2)))
 }
 
 getInvoiceDetails()
