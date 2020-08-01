@@ -49,6 +49,16 @@ function sanitizeData(data) {
     }
   }
 
+  const croissantsSubtotalQuantity = returnValue.quantities.almond_croissants + returnValue.quantities.butter_croissants + returnValue.quantities.chocolate_croissants
+  const tartsSubtotalQuantity = returnValue.quantities.lemon_tarts_small + returnValue.quantities.lemon_tarts_large + returnValue.quantities.almond_tarts_small + returnValue.quantities.almond_tarts_large
+  const breadPuddingSubtotalQuantity = returnValue.quantities.bread_pudding_small + returnValue.quantities.bread_pudding_large
+  const totalQuantity = croissantsSubtotalQuantity + tartsSubtotalQuantity + breadPuddingSubtotalQuantity
+
+  returnValue.quantities.croissantsSubtotal = croissantsSubtotalQuantity
+  returnValue.quantities.tartsSubtotal = tartsSubtotalQuantity
+  returnValue.quantities.breadPuddingSubtotal = breadPuddingSubtotalQuantity
+  returnValue.quantities.total = totalQuantity
+
   const croissantsSubtotal = returnValue.costs.almond_croissants + returnValue.costs.butter_croissants + returnValue.costs.chocolate_croissants
   const tartsSubtotal = returnValue.costs.lemon_tarts_small + returnValue.costs.lemon_tarts_large + returnValue.costs.almond_tarts_small + returnValue.costs.almond_tarts_large
   const breadPuddingSubtotal = returnValue.costs.bread_pudding_small + returnValue.costs.bread_pudding_large
