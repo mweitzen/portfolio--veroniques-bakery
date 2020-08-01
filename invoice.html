@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<!-- HEAD SECTION -->
+<head>
+	<!-- BASIC WEBSITE INFO -->
+	<meta charset="UTF-8" />
+	<title>Veronique's Bakery | Authentic European Pastries</title>
+	<meta name="description" content="Veronique'Bakery delivers an authentic European pastry experience with traditional French ingredients and no additives or chemicals. Croissants, Tarts, and Bread Pudding.">
+	<meta name="author" content="mwProfessional">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- MANIFEST + ICONS -->
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="apple-touch-icon" href="icon192.png">
+	<meta name=”robots” content="index, nofollow">
+
+	<!-- OPEN GRAPH -->
+	<meta property="og:title" content="Veronique's Bakery" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="Veronique'Bakery delivers an authentic European pastry experience with traditional French ingredients and no additives or chemicals." />
+	<meta property="og:url" content="https://veroniquesbakery.com/" />
+	<meta property="og:image" content="https://veroniquesbakery.com/images/content/business_owner_2.png" />
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+	<link rel="stylesheet" href="css/index.css">
+  <style>
+    main {
+      padding: 0 24px;
+      margin-top: 36px;
+    }
+    #paypal-payment {
+      margin-bottom: 52px;
+    }
+  </style>
+
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+
+	<!-- JAVASCRIPT LIBRARIES -->
+	<script src="https://kit.fontawesome.com/be41284bfc.js" crossorigin="anonymous"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+
+</head>
+
+<!-- BODY -->
+<body data-spy="scroll" data-target="#navbar" data-offset="16">
+
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-expand-md navbar-dark" id="navbar">
+		<a class="navbar-brand" href="#home">Veronique's Bakery</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav m-auto">
+				<li class="nav-item"><a class="nav-link" href="/#home">HOME</a></li>
+				<li class="nav-item"><a class="nav-link" href="/#about">ABOUT</a></li>
+				<li class="nav-item"><a class="nav-link" href="/#mission">OUR MISSION</a></li>
+				<li class="nav-item"><a class="nav-link" href="/#products">PRODUCTS</a></li>
+				<li class="nav-item"><a class="nav-link" href="/#services">SERVICES</a></li>
+				<li class="nav-item"><a class="nav-link" href="/#contact">CONTACT</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- MAIN CONTENT -->
+  <main>
+    <div id="invoice">
+      <h1>Finalize Your Payment</h1>
+      <div id="paymentDetails">
+        <h2>Order Details</h2>
+        <p id="payment_order_number"><strong>Order #: </strong></p>
+        <p id="payment_order_name"><strong>Your Name: </strong></p>
+        <p id="payment_order_location"><strong>Address or Pickup: </strong></p>
+        <p id="payment_order_date"><strong>Date & Time: </strong></p>
+        <!-- <p id="payment_order_line_items"><strong>Order Breakdown: </strong></p> -->
+				<div class="row w-100 d-flex justify-content-center">
+					<p id="payment_order_total" class="lead"><span class="font-weight-bold">Order Total: </span></p>
+				</div>
+      </div>
+      <div id="paypal-payment">
+        <div class="d-flex justify-content-center align-items-center" style="height: 240px;">
+          <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+	<!-- FOOTER -->
+	<footer class="text-center">
+		<a href="#home" class="gototop"><i class="fa fa-angle-double-up fa-2x"></i></a>
+		<div class="container">
+			<span>
+					&copy;
+					<span id="copyright"></span> Veronique's Bakery
+					<span class="footer-desktop-util">- </span>
+					<br class="footer-mobile-util" />
+				All rights reserved
+			</span>
+			<br />
+			<span>
+				9626 Venice Blvd, Culver City, CA 90232
+					<span class="footer-desktop-util">- </span>
+					<br class="footer-mobile-util" />
+				Phone: <a href="tel:+13106865466">+1 (310) 686-5466</a>
+			</span>
+		</div>
+	</footer>
+
+	<!-- DEFERRED JAVASCRIPT LIBRARIES -->
+	<script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	<!-- INVOICE.JS -->
+	<script defer src="js/invoice/index.js" type="module"></script>
+
+	<!-- PAYPAL.JS -->
+	<script defer src="js/paypal/index.js" type="module"></script>
+
+</body>
+
+</html>

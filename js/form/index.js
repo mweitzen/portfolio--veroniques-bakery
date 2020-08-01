@@ -47,6 +47,7 @@ export async function handleFormSubmit(e){
   // submit order request to google apps script
   const result = await submitOrderRequest(sanitized)
 
+  // order successfully submitted
   if (result === "success") {
     document.getElementById('submitButton').innerHTML = "Success!"
     setTimeout(() => {
