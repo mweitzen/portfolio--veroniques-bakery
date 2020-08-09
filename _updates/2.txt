@@ -1,0 +1,27 @@
+Change Delivery option from ZipCode to full address.
+Also, please change the price of the large tarts (both the lemon and almond) from $22 to $25.
+
+NEW LOGIC NEEDED:
+
+Select pickup/delivery times on Saturdays only.
+
+Add an additional $10 fee for orders equal to and between $20 - $39.99.
+
+Do not allow a delivery option for orders under $20.
+
+Pickups can be scheduled for Saturdays from 1:00pm - 6:00pm.
+
+Deliveries can be scheduled for Saturdays from 2:00pm - 6:00pm.
+
+If the order is on or after 12:00am Friday morning, then the pickup or delivery cannot be scheduled for the current Saturday so the default date should be the following Saturday.
+
+See the language below that has been approved by Veronique for the info sections.
+
+Do not allow delivery option if the full address provided is more than 10 miles away from the kitchen.
+
+Address of Kitchen:
+
+Veronique's Bakery
+  (@BiiBiip Restaurant)
+9622 Venice Blvd.
+Culver City, CA  90232
