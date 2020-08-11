@@ -2,7 +2,7 @@ let orderTotal = 0;
 
 export function validateCosts() {
   orderTotal = 0;
-  
+
   const xOrderForm = document.getElementById('order')
   const orderTotals = xOrderForm.querySelectorAll('input')
 
