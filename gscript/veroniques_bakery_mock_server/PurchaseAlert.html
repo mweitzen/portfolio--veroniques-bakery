@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body {
+        font-family: 'Tahoma', 'Verdana', sans-serif;
+        background-color: #f1f1f1;
+      }
+      table {
+        width: 100%;
+        table-layout: auto;
+      }
+      tr {
+        width: 100%;
+      }
+      th {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Order Placed!</h1>
+    <h2>Details:</h2>
+    <h3>Date: <?= orderData.date ?></h3>
+    <h4>Time: <?= orderData.time ?></h4>
+    <br>
+    <p>Name: <?= orderData.name ?></p>
+    <p>Email: <a href="mailto:<?= orderData.email ?>?Subject=Confirming%20Veronique%27s%20Bakery%20Order" target="_top" ><?= orderData.email ?></a></p>
+    <p>Phone: <a href="tel:<?= orderData.phone ?>"><?= orderData.phone ?></a></p>
+    <br>
+    <h3>Order #<?= orderData.order_number ?> Confirmed</h3>
+    <h2>Order Details</h2>
+    <? if (orderData.quantities.croissantsSubtotal > 0) { ?>
+      <h3>Croissants</h3>
+      <table>
+        <tr>
+          <th>Qnt.</th>
+          <th></th>
+          <th>Product</th>
+          <th></th>
+          <th>Price</th>
+        </tr>
+      <? if (orderData.quantities.butter_croissants > 0) { ?>
+        <tr>
+          <td><?= orderData.quantities.butter_croissants ?></td>
+          <td></td>
+          <td>Butter Croissants</td>
+          <td></td>
+          <td>$<?= orderData.costs.butter_croissants ?></td>
+        </tr>
+      <? } ?>
+      <? if (orderData.quantities.almond_croissants > 0) { ?>
+        <tr>
+          <td><?= orderData.quantities.almond_croissants ?></td>
+          <td></td>
+          <td>Almond Croissants</td>
+          <td></td>
+          <td>$<?= orderData.costs.almond_croissants ?></td>
+        </tr>
+      <? } ?>
+      <? if (orderData.quantities.chocolate_croissants > 0) { ?>
+        <tr>
+          <td><?= orderData.quantities.chocolate_croissants ?></td>
+          <td></td>
+          <td>Chocolate Croissants</td>
+          <td></td>
+          <td>$<?= orderData.costs.chocolate_croissants ?></td>
+        </tr>
+      <? } ?>
+      </table>
+    <? } ?>
+    <? if (orderData.quantities.tartsSubtotal > 0) { ?>
+      <h3>Tarts</h3>
+      <table>
+        <tr>
+          <th>Qnt.</th>
+          <th></th>
+          <th>Product</th>
+          <th></th>
+          <th>Price</th>
+        </tr>
+        <? if (orderData.quantities.lemon_tarts_small > 0) { ?>
+          <tr>
+            <td><?= orderData.quantities.lemon_tarts_small ?></td>
+            <td></td>
+            <td>Lemon Tarts (small)</td>
+            <td></td>
+            <td>$<?= orderData.costs.lemon_tarts_small ?></td>
+          </tr>
+        <? } ?>
+        <? if (orderData.quantities.lemon_tarts_large > 0) { ?>
+          <tr>
+            <td><?= orderData.quantities.lemon_tarts_large ?></td>
+            <td></td>
+            <td>Lemon Tarts (large)</td>
+            <td></td>
+            <td>$<?= orderData.costs.lemon_tarts_large ?></td>
+          </tr>
+        <? } ?>
+        <? if (orderData.quantities.almond_tarts_small > 0) { ?>
+          <tr>
+            <td><?= orderData.quantities.almond_tarts_small ?></td>
+            <td></td>
+            <td>Almond Tarts (small)</td>
+            <td></td>
+            <td>$<?= orderData.costs.almond_tarts_small ?></td>
+          </tr>
+        <? } ?>
+        <? if (orderData.quantities.almond_tarts_large > 0) { ?>
+          <tr>
+            <td><?= orderData.quantities.almond_tarts_large ?></td>
+            <td></td>
+            <td>Almond Tarts (small)</td>
+            <td></td>
+            <td>$<?= orderData.costs.almond_tarts_large ?></td>
+          </tr>
+        <? } ?>
+      </table>
+     <? } ?>
+     <? if (orderData.quantities.breadPuddingSubtotal > 0) { ?>
+      <h3>Bread Pudding</h3>
+      <table>
+        <tr>
+          <th>Qnt.</th>
+          <th></th>
+          <th>Product</th>
+          <th></th>
+          <th>Price</th>
+        </tr>
+        <? if (orderData.quantities.bread_pudding_small > 0) { ?>
+          <tr>
+            <td><?= orderData.quantities.bread_pudding_small ?></td>
+            <td></td>
+            <td>Bread Pudding (small)</td>
+            <td></td>
+            <td>$<?= orderData.costs.bread_pudding_small ?></td>
+          </tr>
+        <? } ?>
+        <? if (orderData.quantities.bread_pudding_large > 0) { ?>
+          <tr>
+            <td><?= orderData.quantities.bread_pudding_large ?></td>
+            <td></td>
+            <td>Bread Pudding (large)</td>
+            <td></td>
+            <td>$<?= orderData.costs.bread_pudding_large ?></td>
+          </tr>
+        <? } ?>
+      </table>
+     <? } ?>
+     <br>
+     <hr>
+     <table>
+       <tr>
+         <td><h2>Total:</h2></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td><h3>$<?= orderData.costs.total ?></h3> </td>
+       </tr>
+     </table>
+  </body>
+</html>
