@@ -1,5 +1,10 @@
 import { submitOrderRequest, sanitizeData } from './submission.js'
 
+import {
+  validateCosts,
+  orderTotal
+} from './deliveryValidation.js'
+
 const formGroups = document.querySelectorAll('#orderForm div.form-group')
 const inputFields = document.querySelectorAll('#orderForm input')
 
@@ -43,7 +48,7 @@ export async function handleFormSubmit(e){
 
   // sanitize form data and structure properly
   const sanitized = sanitizeData(formValues)
-
+  return console.log(sanitized)
   // submit order request to google apps script
   const result = await submitOrderRequest(sanitized)
 
@@ -119,7 +124,7 @@ export function toggleDeliveryInput(e) {
   const deliveryInput = document.getElementById('location')
   if (e.target.value === "pickup") {
     if (e.target.checked) {
-      deliveryInput.value = "90232"
+      deliveryInput.value = "9622 Venice Blvd, Culver City, CA 90232"
       return deliveryInput.disabled = true
     }
   }
@@ -155,6 +160,21 @@ console.log(`${year}-${month}-${day}`);
 
 export function attachNextButtonHandler(e) {
   if (e.target.id === 'next1') {
+    validateCosts()
+    if (orderTotal === 0) return alert('You must place an order before continuing.')
+    document.getElementById('deliveryFeeNotice').style.display = 'none'
+    if (orderTotal < 20) {
+      document.getElementById('delivery').disabled = true
+      document.getElementById('fulfillment-type').children.item(2).style.color = '#d3d3d3'
+      document.getElementById('fulfillment-type').children.item(2).style['text-decoration'] = 'line-through'
+    } else {
+      if (orderTotal < 40) {
+        document.getElementById('deliveryFeeNotice').style.display = 'block'
+      }
+      document.getElementById('delivery').disabled = false
+      document.getElementById('fulfillment-type').children.item(2).style.color = 'inherit'
+      document.getElementById('fulfillment-type').children.item(2).style['text-decoration'] = 'none'
+    }
     document.getElementById('order').style.display = 'none'
     document.getElementById('orderDetails').style.display = 'block'
     return

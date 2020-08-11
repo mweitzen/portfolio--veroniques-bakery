@@ -1,5 +1,6 @@
 import { attachFixedClassToNavbar } from './navbar/sticky.js'
 import { addCurrentYearToFooter } from './footer/copyright.js'
+import { initAutocomplete, geolocate } from './googleMaps/index.js'
 
 import {
   attachValidationToFormInputs,
@@ -23,6 +24,7 @@ attachValidationToFormInputs()
 attachHoverEffectToProductCards()
 setMinimumDateForFulfillment()
 attachQuantityAssistToNumberInputs()
+initAutocomplete()
 
 // Attach Listeners
 window.addEventListener('scroll', () => {
@@ -39,3 +41,5 @@ document.getElementById('pickup').addEventListener('change', toggleDeliveryInput
 document.getElementById('navbar').addEventListener('click', () => {
   $('.collapse').collapse('hide')
 })
+
+// document.getElementById('location').addEventListener('focus', geolocate)

@@ -85,7 +85,11 @@ export function sanitizeData(data) {
   const croissantsSubtotal = returnValue.costs.almond_croissants + returnValue.costs.butter_croissants + returnValue.costs.chocolate_croissants
   const tartsSubtotal = returnValue.costs.lemon_tarts_small + returnValue.costs.lemon_tarts_large + returnValue.costs.almond_tarts_small + returnValue.costs.almond_tarts_large
   const breadPuddingSubtotal = returnValue.costs.bread_pudding_small + returnValue.costs.bread_pudding_large
-  const total = croissantsSubtotal + tartsSubtotal + breadPuddingSubtotal
+  let total = croissantsSubtotal + tartsSubtotal + breadPuddingSubtotal
+  if (rest.fulfillment === 'delivery' && total < 40) {
+    total += 10
+    returnValue.deliveryFee = true
+  }
 
   returnValue.costs.croissantsSubtotal = croissantsSubtotal
   returnValue.costs.tartsSubtotal = tartsSubtotal

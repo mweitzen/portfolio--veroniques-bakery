@@ -1,0 +1,17 @@
+/*
+
+    IMPORTANT
+
+    set z-index of modal and places auto complete container
+    to properly display the autocomplete in the modal
+
+ */
+.modal {
+  z-index: 30;
+}
+.modal-backdrop {
+  z-index: 20;
+}
+.pac-container {
+  z-index: 30;
+}

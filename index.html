@@ -32,6 +32,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/maps.css">
 
 	<!-- FONTS -->
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -40,10 +41,15 @@
 
 	<!-- JAVASCRIPT LIBRARIES -->
 	<script src="https://kit.fontawesome.com/be41284bfc.js" crossorigin="anonymous"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQQEhoWONLoWswboGVPIsN8D0tMJdf8gs&libraries=places"></script>
+
 </head>
 
 <!-- BODY -->
 <body data-spy="scroll" data-target="#navbar" data-offset="16">
+	<input id="autocomplete"
+     placeholder="Enter your address"
+     type="text"/>
 
 	<!-- HEADER -->
 	<header id="home">
@@ -255,7 +261,7 @@
 										<p class="product-price">
 											<span class="lead">Small:</span>&nbsp;&nbsp;$4 / each
 											<br />
-											<span class="lead">Large:</span>&nbsp;&nbsp;$22
+											<span class="lead">Large:</span>&nbsp;&nbsp;$25
 										</p>
 									</div>
 								</div>
@@ -273,7 +279,7 @@
 										<p class="product-price">
 											<span class="lead">Small:</span>&nbsp;&nbsp;$4 / each
 											<br />
-											<span class="lead">Large:</span>&nbsp;&nbsp;$22
+											<span class="lead">Large:</span>&nbsp;&nbsp;$25
 										</p>
 									</div>
 								</div>
@@ -373,7 +379,7 @@
 													</div>
 												</div>
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="lemon_tarts_large">Lemon (large) - $22</label>
+													<label for="lemon_tarts_large">Lemon (large) - $25</label>
 													<div class="input-group input-group-lg mb-3">
 														<input id="lemon_tarts_large" name="lemon_tarts_large" type="number" class="form-control form-control-lg" min="0" autocomplete="off"/>
 													  <div class="quantity-assist input-group-append">
@@ -393,7 +399,7 @@
 													</div>
 												</div>
 												<div class="col-12 col-sm-6 col-lg-4 form-group">
-													<label for="almond_tarts_large">Almond (large) - $22</label>
+													<label for="almond_tarts_large">Almond (large) - $25</label>
 													<div class="input-group input-group-lg mb-3">
 														<input id="almond_tarts_large" name="almond_tarts_large" type="number" class="form-control form-control-lg" min="0" autocomplete="off"/>
 													  <div class="quantity-assist input-group-append">
@@ -435,16 +441,17 @@
 											<div class="form-group">
 												<label for"fulfillment" ><p class='lead mb-1'>Pickup or Request Delivery?</p></label>
 												<br />
-												<div class="ml-3">
+												<div id="fulfillment-type" class="ml-3">
 													<label for="pickup">Pickup</label>
 													<input id="pickup" name="fulfillment" type="radio" value="pickup" class="mr-5" checked />
 													<label for="delivery">Delivery</label>
 													<input id="delivery" name="fulfillment" type="radio" value="delivery" />
+													<small id="deliveryFeeNotice" class="form-text text-muted">If you select delivery:<br />There will be a $10 fee added to this order.<br />Order more than $40 to avoid this fee.</small>													
 												</div>
 											</div>
-											<div id="deliveryInput" class="form-group">
-												<label for="location">Delivery Zip Code</label>
-												<input id="location" name="location" type="text" class="form-control" placeholder="90232" pattern="[0-9]{5}" value="90232" autocomplete="off" required disabled/>
+											<div class="form-group">
+												<label for="location">Delivery Address</label>
+												<input id="location" name="location" type="text" class="form-control" placeholder="Enter your address" value="9622 Venice Blvd, Culver City, CA 90232" required disabled/>
 											</div>
 											<div class="form-group">
 												<label for="date">Date to Fulfill Order</label>
