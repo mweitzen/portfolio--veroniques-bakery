@@ -59,7 +59,7 @@ function sanitizePayload(payload) {
     "fulfillment": payload["fulfillment"],
     "location": payload["location"],
     "date": payload["date"],
-    "time": "",
+    // "time": "",
     "quantities": payload["quantities"],
     "costs": payload["costs"]
   }
@@ -95,19 +95,19 @@ function sanitizePayload(payload) {
   // sanitize date to local date
 
   // sanitize time
-  let [hr, min] = payload.time.split(":")
-
-  let hour = 0
-  let ampm = Number(hr) >= 12 ? 'pm' : 'am'
-  if (Number(hr) == 0) {
-    hour = 12
-  } else if (ampm === 'pm' && hr !== 12) {
-    hour = Number(hr) - 12
-  } else {
-    hour = hr.replace("0", "")
-  }
-
-  sanitized.time = String(hour) + ":" + min + ampm
+  // let [hr, min] = payload.time.split(":")
+  //
+  // let hour = 0
+  // let ampm = Number(hr) >= 12 ? 'pm' : 'am'
+  // if (Number(hr) == 0) {
+  //   hour = 12
+  // } else if (ampm === 'pm' && hr !== 12) {
+  //   hour = Number(hr) - 12
+  // } else {
+  //   hour = hr.replace("0", "")
+  // }
+  //
+  // sanitized.time = String(hour) + ":" + min + ampm
 
   return sanitized
 }
@@ -158,7 +158,7 @@ function formatData(data) {
      data.fulfillment.toString(),
      data.location.toString(),
      data.date.toString(),
-     data.time.toString(),
+     // data.time.toString(),
      today.toString(),
      quantities.almond_croissants.toFixed(0).toString(),
      quantities.butter_croissants.toFixed(0).toString(),
@@ -219,7 +219,7 @@ function sendDataToSpreadsheet(data) {
       data.fulfillment,
       data.location,
       data.date,
-      data.time,
+      // data.time,
       new Date().toLocaleString()
     ],
     "quantities": [

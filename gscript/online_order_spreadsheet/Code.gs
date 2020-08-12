@@ -66,7 +66,7 @@ function formatData(data) {
       data.fulfillment_type,
       data.fulfillment_location,
       data.date,
-      data.time,
+      // data.time,
       new Date().toLocaleString()
     ],
     "quantities": [

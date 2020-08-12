@@ -9,7 +9,8 @@ import {
   attachNextButtonHandler,
   attachBackButtonHandler,
   attachCloseButtonHandler,
-  setMinimumDateForFulfillment
+  populateDateWithSaturdays,
+  // setMinimumDateForFulfillment
 } from './form/index.js'
 
 import {
@@ -22,7 +23,8 @@ import { attachHoverEffectToProductCards } from './products/hover.js'
 addCurrentYearToFooter()
 attachValidationToFormInputs()
 attachHoverEffectToProductCards()
-setMinimumDateForFulfillment()
+// setMinimumDateForFulfillment()
+populateDateWithSaturdays()
 attachQuantityAssistToNumberInputs()
 initAutocomplete()
 

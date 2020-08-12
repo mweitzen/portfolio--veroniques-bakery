@@ -48,7 +48,7 @@ export async function handleFormSubmit(e){
 
   // sanitize form data and structure properly
   const sanitized = sanitizeData(formValues)
-  return console.log(sanitized)
+
   // submit order request to google apps script
   const result = await submitOrderRequest(sanitized)
 
@@ -139,17 +139,52 @@ export function toggleDeliveryInput(e) {
  *
  */
 
-export function setMinimumDateForFulfillment() {
-  const today = new Date()
+// export function setMinimumDateForFulfillment() {
+//   const today = new Date()
+//
+//   const dayX = today.getDate()
+//   const day = dayX < 10 ? `0${dayX}` : dayX
+//   const monthX = today.getMonth() + 1
+//   const month = monthX < 10 ? `0${monthX}` : monthX
+//   const year = today.getFullYear()
+//   console.log(`${year}-${month}-${day}`);
+//   document.getElementById('date').min = `${year}-${month}-${day}`
+//   document.getElementById('date').value = `${year}-${month}-${day}`
+// }
 
-  const dayX = today.getDate()
-  const day = dayX < 10 ? `0${dayX}` : dayX
-  const monthX = today.getMonth() + 1
-  const month = monthX < 10 ? `0${monthX}` : monthX
-  const year = today.getFullYear()
-console.log(`${year}-${month}-${day}`);
-  document.getElementById('date').min = `${year}-${month}-${day}`
-  document.getElementById('date').value = `${year}-${month}-${day}`
+/*
+ *
+ *  POPULATE DATE SELECT WITH SATURDAYS IN FUTURE
+ *
+ */
+
+export function populateDateWithSaturdays() {
+  const today = new Date()
+  const todaysDate = today.getDate()
+
+  const weekday = today.getDay()
+  const saturday = 6
+  const daysUntilSaturday = saturday - weekday
+
+  const d = new Date(today)
+  let firstSaturday;
+  if (weekday > 4) {
+    // start with next Saturday
+    firstSaturday = d.setDate(todaysDate + (daysUntilSaturday + 7))
+  } else {
+    // allow this Saturday
+    firstSaturday = d.setDate(todaysDate + (daysUntilSaturday))
+  }
+
+  const dd = new Date(firstSaturday)
+
+  document.getElementById('date').innerHTML = document.getElementById('date').innerHTML + `<option value="${firstSaturday}">${dd.toDateString()}</option>`
+
+  for ( let x = 1; x < 10; x++ ) {
+    const ddd = new Date(dd).setDate(dd.getDate() + ( 7 * x ))
+    const dddd = new Date(ddd).toDateString()
+    document.getElementById('date').innerHTML = document.getElementById('date').innerHTML + `<option value="${ddd}">${dddd}</option>`
+  }
 }
 
 /*
