@@ -7,11 +7,11 @@ export function initAutocomplete() {
     lng: -118.3985791
   };
 
-  const tenMilesInMeters = 16093.4
+  const sixMilesInMeters = 9656.06
 
   const circle = new google.maps.Circle({
     center: restaurantLocation,
-    radius: tenMilesInMeters
+    radius: sixMilesInMeters
   });
 
   // Create the autocomplete object, restricting the search predictions to
