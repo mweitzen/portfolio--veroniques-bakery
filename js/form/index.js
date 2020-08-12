@@ -18,7 +18,7 @@ export async function handleFormSubmit(e){
 
   // prevent submit
   e.preventDefault()
-
+  document.getElementById('submitButton').disabled = true
   document.getElementById('submitButton').innerHTML = document.getElementById('submitButton').innerHTML + '<div class="spinner-border ml-3 align-self-center" role="status" aria-hidden="true"></div>'
 
   // define values for return
@@ -55,6 +55,7 @@ export async function handleFormSubmit(e){
   // order successfully submitted
   if (result === "success") {
     document.getElementById('submitButton').innerHTML = "Success!"
+    document.getElementById('submitButton').disabled = false
     setTimeout(() => {
       $('#orderFormModal').modal('hide')
       document.getElementById('orderForm').reset()
