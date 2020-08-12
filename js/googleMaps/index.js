@@ -29,18 +29,33 @@ export function initAutocomplete() {
   // place fields that are returned to just the address components.
   autocomplete.setFields(['address_component']);
 
-  document.getElementById('location').addEventListener('blur', checkAddress)
+  document.getElementById('location').addEventListener('keyup', () => {
+    document.getElementById('next2').disabled = true
+  })
+
+  document.getElementById('fulfillment-type').addEventListener('change', (e) => {
+    // document.getElementById('next2').disabled = true
+    if (e.target.value === 'delivery') {
+      document.getElementById('next2').disabled = true
+    } else {
+      document.getElementById('next2').disabled = false
+    }
+  })
+
+  autocomplete.addListener('place_changed', () => {
+    document.getElementById('next2').disabled = false
+  })
 }
 
-function checkAddress() {
-  // Get the place details from the autocomplete object.
-  var place = autocomplete.getPlace();
-  // if (!place) {
-  //   console.log('FAIL')
-  // } else {
-  //   console.log(place)
-  // }
-}
+// export function checkAddress() {
+//   // Get the place details from the autocomplete object.
+//   var place = autocomplete.getPlace();
+//   // if (!place) {
+//   //   console.log('FAIL')
+//   // } else {
+//   //   console.log(place)
+//   // }
+// }
 
 // Bias the autocomplete object to the user's geographical location,
 // as supplied by the browser's 'navigator.geolocation' object.
