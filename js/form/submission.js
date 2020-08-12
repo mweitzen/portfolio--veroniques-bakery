@@ -64,9 +64,9 @@ export function sanitizeData(data) {
       butter_croissants: butter_croissants * 3.50,
       chocolate_croissants: chocolate_croissants * 0,
       lemon_tarts_small: lemon_tarts_small * 4,
-      lemon_tarts_large: lemon_tarts_large * 22,
+      lemon_tarts_large: lemon_tarts_large * 25,
       almond_tarts_small: almond_tarts_small * 4,
-      almond_tarts_large: almond_tarts_large * 22,
+      almond_tarts_large: almond_tarts_large * 25,
       bread_pudding_small: bread_pudding_small * 3.50,
       bread_pudding_large: bread_pudding_large * 20,
     }
