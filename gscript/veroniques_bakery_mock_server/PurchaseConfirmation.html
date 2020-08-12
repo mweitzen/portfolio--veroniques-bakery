@@ -147,6 +147,15 @@
      <br>
      <hr>
      <table>
+        <? if (orderData.deliveryFee === 'true' || orderData.deliveryFee === true) { ?>
+         <tr>
+           <td><h3>Delivery Fee</h3></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td><h3>+$10</h3> </td>
+         </tr>
+       <? } ?>
        <tr>
          <td><h2>Total:</h2></td>
          <td></td>

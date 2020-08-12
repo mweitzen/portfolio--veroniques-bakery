@@ -23,7 +23,7 @@
     <h1>Order Placed!</h1>
     <h2>Details:</h2>
     <h3>Date: <?= orderData.date ?></h3>
-    <!-- <h4>Time: <?= orderData.time ?></h4> -->
+    <h4>Time: <?= orderData.time ?></h4>
     <br>
     <p>Name: <?= orderData.name ?></p>
     <p>Email: <a href="mailto:<?= orderData.email ?>?Subject=Confirming%20Veronique%27s%20Bakery%20Order" target="_top" ><?= orderData.email ?></a></p>
@@ -151,6 +151,15 @@
      <br>
      <hr>
      <table>
+       <? if (orderData.deliveryFee) { ?>
+         <tr>
+           <td><h3>Delivery Fee</h3></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td><h3>+$10</h3> </td>
+         </tr>
+       <? } ?>
        <tr>
          <td><h2>Total:</h2></td>
          <td></td>
