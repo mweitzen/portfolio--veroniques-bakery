@@ -35,11 +35,11 @@ export function initAutocomplete() {
 function checkAddress() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
-  if (!place) {
-    console.log('FAIL')
-  } else {
-    console.log(place)
-  }
+  // if (!place) {
+  //   console.log('FAIL')
+  // } else {
+  //   console.log(place)
+  // }
 }
 
 // Bias the autocomplete object to the user's geographical location,

@@ -190,7 +190,6 @@ export function populateDateWithSaturdays() {
     const month = monthX < 10 ? `0${monthX}` : monthX
     const year = ddd.getFullYear()
     document.getElementById('date').innerHTML = document.getElementById('date').innerHTML + `<option value="${year + "-" + month + "-" + day}">${dddd}</option>`
-    console.log(`${year + "-" + month + "-" + day}`);
   }
 }
 
