@@ -6,7 +6,7 @@ import {
 } from './deliveryValidation.js'
 
 const formGroups = document.querySelectorAll('#orderForm div.form-group')
-const inputFields = document.querySelectorAll('#orderForm input')
+const inputFields = document.querySelectorAll('#orderForm input, select')
 
 /*
  *
@@ -181,9 +181,16 @@ export function populateDateWithSaturdays() {
   document.getElementById('date').innerHTML = document.getElementById('date').innerHTML + `<option value="${firstSaturday}">${dd.toDateString()}</option>`
 
   for ( let x = 1; x < 10; x++ ) {
-    const ddd = new Date(dd).setDate(dd.getDate() + ( 7 * x ))
+    const ddd = new Date( new Date(dd).setDate(dd.getDate() + ( 7 * x )) )
     const dddd = new Date(ddd).toDateString()
-    document.getElementById('date').innerHTML = document.getElementById('date').innerHTML + `<option value="${ddd}">${dddd}</option>`
+
+    const dayX = ddd.getDate()
+    const day = dayX < 10 ? `0${dayX}` : dayX
+    const monthX = ddd.getMonth() + 1
+    const month = monthX < 10 ? `0${monthX}` : monthX
+    const year = ddd.getFullYear()
+    document.getElementById('date').innerHTML = document.getElementById('date').innerHTML + `<option value="${year + "-" + month + "-" + day}">${dddd}</option>`
+    console.log(`${year + "-" + month + "-" + day}`);
   }
 }
 
